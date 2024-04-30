@@ -11,14 +11,12 @@ namespace xChangerSimple.Services.Foundations
         {
             this.storageBroker = storageBroker;
         }
-        public async ValueTask<Talaba> AddAsyncTalaba(Talaba talaba)
-        {
-            return await this.storageBroker.InsertAsyncTalaba(talaba);
-        }
-        public IQueryable<Talaba> RetrieveAllTalabalar()
-        {
-            return this.storageBroker.SelectAllTalabalar();
-        }
+        public async ValueTask<Talaba> AddAsyncTalaba(Talaba talaba) =>
+                await this.storageBroker.InsertAsyncTalaba(talaba);
+
+        public IQueryable<Talaba> RetrieveAllTalabalar() =>
+            this.storageBroker.SelectAllTalabalar();
+
         public string SerializeToXml(List<Talaba> talabalar)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Talaba>));
@@ -28,6 +26,9 @@ namespace xChangerSimple.Services.Foundations
         }
     }
 }
-      
+
+
+
+
 
 
